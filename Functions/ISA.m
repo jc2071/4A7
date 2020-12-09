@@ -1,5 +1,5 @@
 function [T,p,rho,a] = ISA(h)
-% [T,p,rho,a] = ISAt(h)
+% [T,p,rho,a] = ISA(h)
 % T = tempreture
 % p = pressure
 % rho = density
