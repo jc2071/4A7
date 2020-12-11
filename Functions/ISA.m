@@ -11,7 +11,7 @@ asl = 340.3;
 psl = 101.325;
 rhosl = 1.225;
 
-if h <= repmat(11,size(h)) && repmat(11,size(h)) >=0
+if h <= 11 && h >=0
     T = tsl - 6.5.*h;
     p = psl*(T./tsl).^(5.256);
     rho = rhosl*(T./tsl).^(4.256);

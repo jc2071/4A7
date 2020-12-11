@@ -18,6 +18,7 @@ mc = 0.8; % mach number at cruise
 icr = 31000; % initial cruise altitude (ft)
 LD = 21; % cruise L/D
 A = 315; % wing area
+LCV = 42.7e6;
 
 %% Reference data 2
 
@@ -25,12 +26,15 @@ tac = 227; % atmosphere tempreture at cruise
 pac = 28.7; % atmosphere pressure at cruise
 to2 = 259; % stagnation tempreture at cruise
 po2 = 45.7; % stagnation pressure at cruise
-OPR = 45; % Overall Pressure Ratio
-theta = 6; % Turbine entry tempreture ratio
+%OPR = 45; % Overall Pressure Ratio
+%theta = 6; % Turbine entry tempreture ratio
 teff = 0.9; % Turbine and compressor effciencies
 FPR = 1.45; % fan pressure ratio
 feff = 0.92; % fan effciency
 treff = 0.90; % transfer effciencie
+gamma = 1.4; % gamma
+g = 9.81; % gravity
+R = 287; % Gas constant
 
 %% Refrence data 3
 
