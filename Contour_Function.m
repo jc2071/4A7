@@ -5,25 +5,25 @@ Reference_data;
 stages = 10;
 stage_length =  flight_range*1000/stages;
 
-beta_star = 2*sqrt(k1*k2);
+[T,p,rho,a] = ISA(height); % get ISA envioment conditions for fixed height
+    w0_stage = 220; % get starting weight 
+    mach_stage = zeros(1,stages); % get mach number variation over the flight
+    stage_fuel_used = zeros(1,stages); % get fuel used over the flight
+    mass_co2 = 0; % store mass co2 used
+    mass_nox = 0; % store mass nox used
+    
+for i = 1:1:stages % loop over each stage in fixed height flight
 
-
-[T,p,rho,a] = ISA(height); % get ISA envioment conditions
-w0_stage = 200;
-mach_stage = zeros(1,stages);
-stage_fuel_used = zeros(1,stages);
-mass_co2 = 0;
-mass_nox = 0;
-for i = 1:1:stages
-    ve_star = (w0_stage*1000*g/(0.5*rhosl*A))^0.5 *(k2/k1)^0.25; % Optimum EAS 
+    ve_star = (w0_stage*1000*g/(0.5*rhosl*A))^0.5 *(k2/k1)^0.25; % Optimum Equivilant Air Speed 
     nu = 1; % EAS ratio to optimium set to get best L/D
-    EAS = nu*ve_star;
+    EAS = nu*ve_star; % actaul EAS
     TAS = ve_star/sqrt(rho/rhosl); % True Air Speed
     mach = TAS/a; % Mach number of flight (cruise)
-    w0_stage = w0_stage - 10;
-    if mach >= 0.85
-         mach = 0.85;
-    end
+
+%     if mach >= 0.85
+%         mach = 0.85; % don't go faster
+%     end
+    [mach, ~, nu] = max_range(w0_stage,height,OPR);    
     mach_stage(i) = mach;
 
     [mj,tj, peff] = jet(mach, FPR, feff); % jet mach, jet temp ratio, propulsive efficiency
@@ -39,9 +39,7 @@ for i = 1:1:stages
 
     stage_fuel_used(i) = weight_fuel;
     w0_stage = w0_stage - weight_fuel;
-
     T02 = stag_temp(mach,height);
-
     nox = NOx(T02,teff,OPR)*weight_fuel*2*15.1*1000;
     co2 = 3088*weight_fuel*1000;
 
@@ -49,6 +47,6 @@ for i = 1:1:stages
     mass_nox = mass_nox + nox;
 end
 
-
-nox = mass_nox/flight_range/pmax;
 co2 = mass_co2/flight_range/pmax;
+nox = mass_nox/flight_range/pmax;
+

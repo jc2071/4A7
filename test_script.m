@@ -24,7 +24,7 @@ xq = 5:0.01:12;
 
 noxi = [];
 co2i = [];
-heights =  5:0.1:12;
+heights =  5:0.1:16;
 i = 1;
 for h = heights
     [noxi(i), co2i(i)] = impact(h);
