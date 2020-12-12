@@ -103,4 +103,5 @@ xline(28.5,'--','label','Minimium OPR','color','k','linewidth',1.5,...
 set(gca,'FontName','Times','FontSize',12)
 xlabel('Overall Pressure Ratio')
 ylabel('Fuel used at design range (T)')
+box on
 print(gcf,'max_fuel','-depsc')
