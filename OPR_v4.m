@@ -5,11 +5,11 @@ Reference_data
 
 flight_range = 12000;% Set flight range
 
-stages = 13; % number of integration stages
+stages = 10; % number of integration stages
 
 stage_length =  flight_range*1000/stages; % length of each stage (m)
 
-height = 11; % fixed heights to fly at
+height = 9.5; % fixed heights to fly at
 
 OPR_range = 3:1:100;
 

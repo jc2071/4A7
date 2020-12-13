@@ -11,7 +11,7 @@ stages = 10; % number of integration stages
 
 stage_length =  flight_range*1000/stages; % length of each stage (m)
 
-heights = 5:1:15; % fixed heights to fly at
+heights = 0:1:15; % fixed heights to fly at
 
 beta_star = 2*sqrt(k1*k2); % the optiumum L/D fixed by k1*k2
 

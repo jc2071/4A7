@@ -5,7 +5,7 @@ Reference_data
 
 w0 = 200;
 weights =[1 0.80 0.60 0.40]*w0;
-altitudes = 5:0.1:20;
+altitudes = 0:0.1:15;
 
 cl_star = sqrt(k1/k2);
 linestyles = {'-','--','-.',':'};
@@ -37,4 +37,6 @@ xlabel('Altitude (km)')
 ylim([0.30,0.9])
 ylabel('Optimium Mach number')
 set(gca,'FontName','Times','FontSize',12)
+box on;
+xticks(0:1:15)
 print('opt_mach','-depsc')
