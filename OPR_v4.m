@@ -11,7 +11,7 @@ stage_length =  flight_range*1000/stages; % length of each stage (m)
 
 height = 9.5; % fixed heights to fly at
 
-OPR_range = 3:1:100;
+OPR_range = 3:1:60;
 
 beta_star = 2*sqrt(k1*k2); % the optiumum L/D fixed by k1*k2
 
@@ -74,7 +74,7 @@ end
 
 figure(1)
 hold on
-plot(OPR_range,co2_masses/(flight_range*pmax),'-' ,'color','g','DisplayName', 'CO_2','linewidth',1.5)
+%plot(OPR_range,co2_masses/(flight_range*pmax),'-' ,'color','r','DisplayName', 'CO_2','linewidth',1.5)
 plot(OPR_range,nox_masses/(flight_range*pmax),'-' ,'color','b','DisplayName', 'NO_x','linewidth',1.5)
 
 figure(2)
@@ -88,6 +88,8 @@ figure(1)
 legend('location','ne')
 xlabel('Overall Pressure Ratio')
 ylabel('Emissions g/PAX km')
+text(0.4,115,'CO_2','FontName','Times','FontSize',12,'color','r')
+text(0.4,8,'NO_x','FontName','Times','FontSize',12,'color','b')
 set(gca,'FontName','Times','FontSize',12)
 box on
 print(gcf,'OPR','-depsc')

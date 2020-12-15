@@ -73,7 +73,7 @@ end
 
 figure(1)
 hold on
-plot(heights,co2_masses/(flight_range*pmax),'-' ,'color','g','DisplayName', 'CO_2','linewidth',2)
+plot(heights,co2_masses/(flight_range*pmax),'-' ,'color','r','DisplayName', 'CO_2','linewidth',2)
 plot(heights,nox_masses/(flight_range*pmax),'-' ,'color','b','DisplayName', 'NO_x','linewidth',2)
 
 index = 1;
@@ -125,8 +125,10 @@ for height = heights % loop through for a fixed height
     index = index +1;
 end
 
-plot(heights,co2_masses/(flight_range*pmax),'--' ,'color','g','DisplayName', 'CO_2 Mach Limit','linewidth',2)
+plot(heights,co2_masses/(flight_range*pmax),'--' ,'color','r','DisplayName', 'CO_2 Mach Limit','linewidth',2)
 plot(heights,nox_masses/(flight_range*pmax),'--' ,'color','b','DisplayName', 'NO_x Mach Limit','linewidth',2)
+text(0.4,86,'CO_2','FontName','Times','FontSize',12,'color','r')
+text(0.4,8,'NO_x','FontName','Times','FontSize',12,'color','b')
 legend('location','e')
 xlabel('Altitude (km)')
 ylabel('Emissions g/PAX km')

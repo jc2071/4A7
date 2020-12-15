@@ -1,7 +1,7 @@
 clc; clear; close all;
 
-OPR_range = 5:5:100;
-height_range = 0:1:15;
+OPR_range = 4:2:100;
+height_range = 0:0.5:15;
 
 [X, Y] =  meshgrid(height_range,OPR_range);
 
@@ -28,6 +28,7 @@ clabel(C,h,c,'FontName','Times', 'FontSize',10)
 xlabel('Altitude (km)')
 ylabel('Overall Pressure Ratio')
 box on
+xticks(0:1:15)
 c = colorbar;
 c.Label.String = 'Range (km)';
 set(gca,'FontName','Times','FontSize',12)

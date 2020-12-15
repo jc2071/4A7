@@ -35,7 +35,7 @@ set(gca,'FontName','Times','FontSize',12)
 print('nox','-depsc')
 
 figure(2)
-c = 0:10:160;
+c = [70 75 80 85 90 95 110 130];
 [C,h] = contour(X,Y,Co2,c,'linewidth',1.5);
 clabel(C,h,c,'FontName','Times', 'FontSize',10)
 xlabel('Altitude (km)')

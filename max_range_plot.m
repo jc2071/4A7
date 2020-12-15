@@ -5,7 +5,7 @@ Reference_data;
 w0 = 220;
 OPR = 40;
 weights = [1 0.80 0.60 0.40]*w0;
-altitudes = 0:0.5:20;
+altitudes = 0:0.5:15;
 
 linestyles = {'-','--','-.',':'};
 colors = {'r','b','g','m'};
@@ -36,6 +36,7 @@ legend('location','se')
 xlabel('Altitude (km)')
 ylim([0.30,0.9])
 ylabel('Optimium Mach number')
+xticks(0:1:15)
 set(gca,'FontName','Times','FontSize',12)
 box on
 print('opt_mach','-depsc')
@@ -44,6 +45,7 @@ figure(2)
 legend('location','se')
 xlabel('Altitude (km)')
 ylabel('Range Parameter')
+xticks(0:1:15)
 set(gca,'FontName','Times','FontSize',12)
 box on
 legend('location','s')
